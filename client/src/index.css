@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+.movie-card {
+  transition: transform 0.3s ease;
+}
+.movie-card:hover {
+  transform: scale(1.05);
+}
+
+.loader {
+  border: 4px solid #f3f3f3; /* Light grey background */
+  border-top: 4px solid #b91c1c; /* Red spinner line (matches Tailwind's red-900) */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-slideUp {
+  animation: slideUp 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes title-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes card-in {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+  70% {
+    transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes button-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes pulse-slow {
+  0%,
+  100% {
+    box-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.8);
+  }
+}
+.animate-title-in {
+  animation: title-in 0.8s ease-out;
+}
+.animate-card-in {
+  animation: card-in 0.6s ease-out forwards;
+}
+.animate-button-in {
+  animation: button-in 0.5s ease-out forwards,
+    pulse-slow 2s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-title-in,
+  .animate-card-in,
+  .animate-button-in,
+  .animate-pulse,
+  .animate-spin,
+  .animate-pulse-slow {
+    animation: none;
+    transform: none;
+    opacity: 1;
+    box-shadow: none;
+  }
+}
+
+
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        .animate-fadeInUp {
+          animation: fadeInUp 0.6s ease-out forwards;
+        }
